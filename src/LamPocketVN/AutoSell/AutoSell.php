@@ -39,9 +39,9 @@ class Main extends PluginBase implements Listener {
 	
 	public function replaceVars(string $string, array $vars) : string{ 
 		foreach($vars as $key => $value){
-			$str = str_replace("{" . $key . "}", $value, $str);
+			$string = str_replace("{" . $key . "}", $value, $string);
 		}
-		return $str;
+		return $string;
 	}
 	
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool{
@@ -69,12 +69,13 @@ class Main extends PluginBase implements Listener {
 	}
 	
 	public function sell(Player $player){
-		$items = $player->getInventory()->getContents();
+		$inventory = $player->getInventory();
+		$items = $inventory->getContents();
 		foreach($items as $item){
 			if($this->config->get($item->getId()) !== null && $this->config->get($item->getId()) > 0){
-				$price = $this->cfg->get($item->getId()) * $item->getCount();
+				$price = $this->config->get($item->getId()) * $item->getCount();
 				EconomyAPI::getInstance()->addMoney($player, $price);
-				$player->getInventory()->remove($item);
+				$inventory->remove($item);
 			}
 		}
 	}
