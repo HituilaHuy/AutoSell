@@ -94,8 +94,8 @@ class Main extends PluginBase implements Listener {
 
 	public function onQuit(PlayerQuitEvent $event){
 		$player = $event->getPlayer();
-		if(isset($this->mode[$player->getName())])){
-			unset($this->mode[$player->getName())]);
+		if(isset($this->mode[$player->getName()])){
+			unset($this->mode[$player->getName()]);
 		}
 	}
 }
