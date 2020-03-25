@@ -29,7 +29,7 @@ class Main extends PluginBase implements Listener {
 	public function onEnable() : void{
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->saveDefaultConfig();
-		$this->config = new  Config($this->getDataFolder() . "sell.yml" , Config::YAML);
+		$this->config = new Config($this->getDataFolder() . "sell.yml" , Config::YAML);
 	}
 
 	public function onJoin(PlayerJoinEvent $event){
