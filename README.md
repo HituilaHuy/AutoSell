@@ -1,6 +1,6 @@
 # AutoSell
 
-- Có kết hợp với SellAll
+- Có bảng giá sell riêng
 
 - Sell không spam gây lag
 
